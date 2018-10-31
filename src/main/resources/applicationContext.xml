@@ -20,20 +20,21 @@
 
     <bean id="gson" class="com.google.gson.Gson"/>
 
-    <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+    <!--<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <property name="jndiName" value="java:comp/env/jdbc/demo_JNDI"/>
         <property name="resourceRef" value="true" />
-    </bean>
+    </bean>-->
     <!-- MyBatis配置 -->
-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="typeAliasesPackage" value="com.cjq.**.entity"/>
-        <!--<property name="mapperLocations" value="classpath:com/xw/finance/entity/*.xml"/>-->
-    </bean>
+        &lt;!&ndash;<property name="mapperLocations" value="classpath:com/xw/finance/entity/*.xml"/>&ndash;&gt;
+    </bean>-->
 
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.cjq.**.dao"/>
     </bean>
 
+    <aop:aspectj-autoproxy />
 </beans>
